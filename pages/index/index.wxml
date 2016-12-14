@@ -17,3 +17,19 @@
 
 <switch wx:for="{{numberArray}}" wx:key="*this" style="display: block;"> {{item}} </switch>
 <button bindtap="addNumberToFront"> Add to the front </button>
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="aaa"></image>
+        </swiper-item>
+    </block>
+</swiper>
+<view bindtap="viewTap">{{num}}</view> 
+<map markers="{{markers}}" covers="{{covers}}"></map>
+<audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
+
+<button type="primary" bindtap="audioPlay">播放</button>
+<button type="primary" bindtap="audioPause">暂停</button>
+<button type="primary" bindtap="audio14">设置当前播放时间为200秒</button>
+<button type="primary" bindtap="audioStart">回到开头</button>
+<button bindtap="tan">弹出</button>

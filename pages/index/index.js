@@ -14,7 +14,45 @@ Page({
       {id: 1, unique: 'unique_1'},
       {id: 0, unique: 'unique_0'},
     ],
-    numberArray: [1, 2, 3, 4]
+    numberArray: [1, 2, 3, 4],
+    imgUrls:[
+      '../../images/1.jpg',
+      '../../images/2.jpg',
+      '../../images/3.jpg'
+    ],
+     indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+   markers: [{
+      latitude: 37.87059,
+      longitude: 112.548879,
+      name: '山西',
+      desc: '我现在的位置'
+    }],
+    covers: [{
+      latitude: 37.87059,
+      longitude: 112.548879
+    }, {
+      latitude: 37.87059,
+      longitude: 112.548879
+    }],
+     poster: 'https://y.gtimg.cn/music/photo_new/T002R300x300M000002C4qL44RmrHd.jpg?max_age=2592000',
+    name: '此时此刻',
+    author: '许巍',
+    src: 'https://c.y.qq.com/v8/playsong.html?songid=109530995&source=yqq#wechat_redirect',
+  },
+   audioPlay: function () {
+    this.audioCtx.play()
+  },
+  audioPause: function () {
+    this.audioCtx.pause()
+  },
+  audio14: function () {
+    this.audioCtx.seek(200)
+  },
+  audioStart: function () {
+    this.audioCtx.seek(0)
   },
     switch: function(e) {
     const length = this.data.objectArray.length
@@ -45,9 +83,20 @@ Page({
   onLoad:function(){
     console.log("页面加载完成")
   },onReady:function(){
-    console.log("页面渲染完成")
+    console.log("页面渲染完成");
+    this.audioCtx = wx.createAudioContext('myAudio');
   },onShow:function(){
     console.log("页面显示")
+wx.getLocation({
+  type: 'gcj02',
+  success: function(res) {
+    console.log(res)
+    var latitude = res.latitude
+    var longitude = res.longitude
+    var speed = res.speed
+    var accuracy = res.accuracy
+  }
+})
   },onHide:function(){
     console.log("页面隐藏")
   },onUnload:function(){
@@ -69,6 +118,18 @@ Page({
     })
     flag=true;
     }
+  },
+  tan:function(){
+    console.log(1)
+    wx.showModal({
+  title: '提示',
+  content: '这是一个模态弹窗',
+  success: function(res) {
+    if (res.confirm) {
+      console.log('用户点击确定')
+    }
+  }
+})
   }
 
 })

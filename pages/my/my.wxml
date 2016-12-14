@@ -1,0 +1,19 @@
+<view>
+  <view>城市：{{basic.city}}</view>
+  <view>当地时间{{basic.update.loc}}</view>
+</view>
+<template name="item">
+      <view>日出:{{astro.sr}}</view>
+      <view>日落：{{astro.ss}}</view>
+      <view>
+      <text>白天天气：{{cond.txt_d}}</text>
+      <image src="http://files.heweather.com/cond_icon/{{cond.code_d}}.png"></image>
+      </view>
+      <view>
+      <text>晚上天气：{{cond.txt_n}}</text>
+      <image src="http://files.heweather.com/cond_icon/{{cond.code_n}}.png"></image>
+      </view>
+      <text>相对湿度：{{hum}}</text>
+      <text>降水概率{{pop}}</text>
+</template>
+<template is="item" wx:for="{{daily}}"  data="{{...item}}"/>

@@ -19,3 +19,9 @@
 .usermotto {
   margin-top: 200px;
 }
+swiper{
+  height: 180px;
+}
+map{
+  height: 400px;
+}
